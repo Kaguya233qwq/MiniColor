@@ -39,6 +39,7 @@ text = green(
     '我只是一个输出',
     back=Color.BLUE
 )
+print(text)
 ```
 这将在终端输出绿色字体、蓝色背景的字符串
 
@@ -66,6 +67,7 @@ text = red(
     back=Color.BLUE,
     style=Style.HighLight
 )
+print(text)
 ```
 这将在终端输出红色字体、蓝色背景、带有高亮效果的字符串
 
