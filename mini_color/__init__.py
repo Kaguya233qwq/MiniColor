@@ -1,60 +1,64 @@
 import random
+from enum import IntEnum
 
 
-class Style(object):
+class Style(IntEnum):
     """
-    The class of styles and effects for printing text
+    The enum class of styles and effects for printing text
 
-    样式和效果类类
+    样式和效果类
     """
     """终端默认"""
-    Default: None = 0
+    Default = 0
 
     """高亮显示"""
-    HighLight: None = 1
+    HighLight = 1
 
     """下划线"""
-    UnderLine: None = 4
+    UnderLine = 4
 
     """闪烁"""
-    Flash: None = 5
+    Flash = 5
 
     """反白显示"""
-    AntiWhite: None = 7
+    AntiWhite = 7
 
     """不可见"""
-    Invisible: None = 8
+    Invisible = 8
 
 
-class Color(object):
+class Color(IntEnum):
     """
     The class of colors for printing text
 
     颜色类
     """
+    """无颜色"""
+    NONE = 0
+
     """黑色"""
-    BLACK: None = 30
+    BLACK = 30
 
     """红色"""
-    RED: None = 31
+    RED = 31
 
     """绿色"""
-    GREEN: None = 32
+    GREEN = 32
 
     """黄色"""
-    YELLOW: None = 33
+    YELLOW = 33
 
     """蓝色"""
-    BLUE: None = 34
+    BLUE = 34
 
     """紫色"""
-    PURPLE: None = 35
+    PURPLE = 35
 
     """青色"""
-    CYAN: None = 36
+    CYAN = 36
 
     """白色"""
-    WHITE: None = 37
+    WHITE = 37
 
     @classmethod
     def random(cls):
@@ -63,23 +67,4 @@ class Color(object):
 
         随机色
         """
-        color = [
-            Color.BLACK,
-            Color.RED,
-            Color.GREEN,
-            Color.YELLOW,
-            Color.BLACK,
-            Color.PURPLE,
-            Color.CYAN,
-            Color.WHITE
-        ]
-        return random.choice(color)
-
-
-def _get_color_value(color: Color):
-    """
-    The get-method of color value which is in color class
-
-    颜色值的get方法
-    """
-    return int(color.__str__())
+        return random.choice(list(cls))

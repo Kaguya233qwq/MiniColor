@@ -1,4 +1,4 @@
-from . import Color, Style, _get_color_value
+from . import Color, Style
 from .exception import StyleValueError, ColorValueError
 
 
@@ -18,17 +18,15 @@ def _color(
     - back：背景色
     - style：显示的样式
     """
-    color_value = _get_color_value(color)
-    back_value = _get_color_value(back)
-    if style not in [0, 1, 4, 5, 7, 8]:
+    if style not in Style:
         raise StyleValueError('the value of param "style" is out of range')
-    if (color_value < 30 and color_value != 0) or color_value > 37:
+    if color not in Color:
         raise ColorValueError('the value of param "color" is out of range')
-    if 30 <= back_value <= 37 or back == 0:
-        _back = back_value + 10
+    if back in Color:
+        back_ = back + 10
     else:
         raise ColorValueError('the value of param "back" is out of range')
-    return f'\033[{style};{color};{_back}m{content}\033[0m'
+    return f'\033[{style};{color};{back_}m{content}\033[0m'
 
 
 def black(
