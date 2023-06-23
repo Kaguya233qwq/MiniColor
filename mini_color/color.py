@@ -1,11 +1,13 @@
+from typing import Union
+
 from . import Color, Style
 from .exception import StyleValueError, ColorValueError
 
 
 def _color(
         content: str,
-        color: Color = 0,
-        back: Color = 0,
+        color: Union[Color, int] = 0,
+        back: Union[Color, int] = 0,
         style: Style = Style.Default
 ) -> str:
     """

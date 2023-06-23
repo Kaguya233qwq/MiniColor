@@ -61,7 +61,7 @@ class Color(IntEnum):
     WHITE = 37
 
     @classmethod
-    def random(cls):
+    def random(cls) -> int:
         """
         Return a random color
 
